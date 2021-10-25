@@ -15,7 +15,7 @@ class Home extends React.Component {
     return (
       <>
         {/* Header */}
-        <Header>DEVS</Header>
+        <Header title="DEVS" />
         {/* SubHeader */}
         <SubHeader
           title="Portfólios"
@@ -27,23 +27,23 @@ class Home extends React.Component {
 
         <DevList>
           <DevItem
-            photo="photo.png"
+            photo={"https://i.pravatar.cc/100?img=1"}
             name="Ana Lopes"
             expertise="React Developer"
           />
           <DevItem
-            photo="photo.png"
-            name="Ana Lopes"
+            photo={"https://i.pravatar.cc/100?img=2"}
+            name="Silvia Luiza"
             expertise="React Developer"
           />
           <DevItem
-            photo="photo.png"
-            name="Ana Lopes"
+            photo={"https://i.pravatar.cc/100?img=3"}
+            name="Caio Banguela"
             expertise="React Developer"
           />
           <DevItem
-            photo="photo.png"
-            name="Ana Lopes"
+            photo={"https://i.pravatar.cc/100?img=4"}
+            name="Harry Potter"
             expertise="React Developer"
           />
         </DevList>

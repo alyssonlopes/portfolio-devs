@@ -1,17 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./index.css";
 
 class DevItem extends React.Component {
   render() {
     return (
-      <li>
+      <li className="devitem-container">
         {this.props.photo && (
-          <img src={this.props.photo} alt={this.props.name} />
+          <img
+            className="devitem-photo"
+            src={this.props.photo}
+            alt={this.props.name}
+          />
         )}
 
         <div>
-          <p>{this.props.name}</p>
-          <p>{this.props.expertise}</p>
+          <p className="devitem-name">{this.props.name}</p>
+          <p className="devitem-expertise">{this.props.expertise}</p>
         </div>
       </li>
     );

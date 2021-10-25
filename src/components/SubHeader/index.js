@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./style.css";
 
 class SubHeader extends React.Component {
   render() {
     return (
-      <section>
-        <h2>{this.props.title}</h2>
-        <p>{this.props.description}</p>
+      <section className="subheader-container">
+        <h2 className="subheader-title">{this.props.title}</h2>
+        <p className="subheader-subtitle">{this.props.description}</p>
       </section>
     );
   }

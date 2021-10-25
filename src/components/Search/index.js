@@ -1,14 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./style.css";
 
 class Search extends React.Component {
   render() {
     return (
-      <input
-        type="text"
-        placeholder="Pesquisa"
-        onChange={this.props.onChange}
-      />
+      <div className="searchBar">
+        <input
+          type="text"
+          placeholder="Pesquise..."
+          onChange={this.props.onChange}
+        />
+      </div>
     );
   }
 }
