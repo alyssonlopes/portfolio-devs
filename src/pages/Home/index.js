@@ -83,8 +83,10 @@ class Home extends React.Component {
       <>
         {/* Header */}
         <Header title="DEVS">
-          <button onClick={this.props.onChangePage}>Perfil</button>
+          <button onClick={this.props.onChangePagePerfil}>Perfil</button>
+          <button onClick={this.props.onChangePageRegister}>Criar</button>
         </Header>
+
         {/* SubHeader */}
         <SubHeader
           title={this.state.info.title}
