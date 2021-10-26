@@ -12,19 +12,33 @@ class Home extends React.Component {
     this.state = {
       isLoading: true,
       devsList: [],
+      info: {
+        title: "",
+        description: "",
+      },
     };
+
+    this.listData = [];
   }
 
   handleChange = (evt) => {
     const text = evt.target.value;
     console.log(text);
+
+    const resultFilter = this.listData.filter((dev) => {
+      return dev.name.includes(text);
+    });
+
+    this.setState({ devsList: resultFilter });
   };
 
   async componentDidMount() {
     console.log("componentDidMount");
 
-    const response = await fetch("https://randomuser.me/api/?results=10");
+    const response = await fetch("/api/users");
+    const responseInfo = await fetch("/api/info");
     const data = await response.json();
+    const dataInfo = await responseInfo.json();
 
     const devsList = data.results.map((result) => {
       return {
@@ -34,9 +48,15 @@ class Home extends React.Component {
       };
     });
 
+    this.listData = devsList;
+
     this.setState({
       isLoading: false,
       devsList,
+      info: {
+        title: dataInfo.title,
+        description: dataInfo.description,
+      },
     });
 
     // fetch("https://randomuser.me/api/?results=5")
@@ -62,11 +82,13 @@ class Home extends React.Component {
     return (
       <>
         {/* Header */}
-        <Header title="DEVS" />
+        <Header title="DEVS">
+          <button onClick={this.props.onChangePage}>Perfil</button>
+        </Header>
         {/* SubHeader */}
         <SubHeader
-          title="Portfólios"
-          description="As melhores pessoas desenvolvedoras estão aqui!"
+          title={this.state.info.title}
+          description={this.state.info.description}
         />
         {/* Search */}
         <Search onChange={this.handleChange} />
