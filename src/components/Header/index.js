@@ -5,6 +5,7 @@ class Header extends React.Component {
     return (
       <header className="header-container">
         <h1 className="header-title">{this.props.title}</h1>
+        {this.props.children}
       </header>
     );
   }

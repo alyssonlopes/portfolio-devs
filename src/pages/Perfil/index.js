@@ -1,32 +1,14 @@
-// - Cabeçalho
-//     - Seta
-//     - Titulo
-//     - Inicio
-//     - Contato
-// - Sobre mim
-//     - Titulo
-//     - Descrição
-// - Imagem Perfil
-// - Minhas Experiências
-//     - Função
-//     - Instituição
-// - Projetos
-//     - NomeProjeto
-//     - Descrição.
-
 import React from "react";
 import Header from "../../components/Header";
 
-class Perfil extends React.component {
+class Perfil extends React.Component {
   render() {
     return (
       <>
         {/*Header*/}
-        <header>
-          Super Dev
-          <button>Início</button>
-          <button>Contato</button>
-        </header>
+        <Header title="Super Dev">
+          <button onClick={this.props.onChangePage}>Início</button>
+        </Header>
         <div>Sobre</div>
       </>
     );
