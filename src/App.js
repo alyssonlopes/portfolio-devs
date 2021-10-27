@@ -10,6 +10,7 @@ class App extends React.Component {
       isHomePage: true,
       isPerfilPage: false,
       isRegisterPage: false,
+      selectedDev: null,
     };
   }
 
@@ -21,11 +22,12 @@ class App extends React.Component {
     });
   };
 
-  goToPerfil = () => {
+  goToPerfil = (selectedDev) => {
     this.setState({
       isHomePage: false,
       isPerfilPage: true,
       isRegisterPage: false,
+      selectedDev,
     });
   };
 
@@ -46,7 +48,9 @@ class App extends React.Component {
             onChangePageRegister={this.goToRegister}
           />
         )}
-        {this.state.isPerfilPage && <Perfil onChangePage={this.goToHome} />}
+        {this.state.isPerfilPage && (
+          <Perfil dev={this.state.selectedDev} onChangePage={this.goToHome} />
+        )}
         {this.state.isRegisterPage && <Register onChangePage={this.goToHome} />}
       </>
     );
