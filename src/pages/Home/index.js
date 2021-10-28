@@ -4,6 +4,7 @@ import Search from "../../components/Search";
 import DevList from "../../components/DevList";
 import DevItem from "../../components/DevList/DevItem";
 import SubHeader from "../../components/SubHeader";
+import { Link } from "react-router-dom";
 
 class Home extends React.Component {
   constructor(props) {
@@ -58,24 +59,11 @@ class Home extends React.Component {
         description: dataInfo.description,
       },
     });
-
-    // fetch("https://randomuser.me/api/?results=5")
-    // .then((response) => response.json())
-    // .then((data) => {
-    //   const devsList = data.results.map((result) => {
-    //     return {
-    //       name: `${result.name.first} ${result.name.last}`,
-    //       photo: result.picture.thumbnail,
-    //       expertise: result.email,
-    //     };
-    //   });
-
-    //   this.setState({
-    //     isLoading: false,
-    //     devsList,
-    //   });
-    // });
   }
+
+  goToPerfil = (dev) => {
+    this.props.history.push("/perfil", { dev });
+  };
 
   render() {
     console.log("render");
@@ -83,7 +71,9 @@ class Home extends React.Component {
       <>
         {/* Header */}
         <Header title="DEVS">
-          <button onClick={this.props.onChangePageRegister}>Criar</button>
+          <Link to="/register">
+            <button>Criar</button>
+          </Link>
         </Header>
 
         {/* SubHeader */}
@@ -98,12 +88,19 @@ class Home extends React.Component {
         {!this.state.isLoading && (
           <DevList>
             {this.state.devsList.map((dev) => (
+              // <Link
+              //   to={{
+              //     pathname: "/perfil",
+              //     state: { dev },
+              //   }}
+              // >
               <DevItem
                 name={dev.name}
                 photo={dev.photo}
                 expertise={dev.expertise}
-                onSelect={(e) => this.props.onChangePagePerfil(dev)}
+                onSelect={() => this.goToPerfil(dev)}
               />
+              // </Link>
             ))}
           </DevList>
         )}

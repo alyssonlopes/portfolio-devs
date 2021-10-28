@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../../components/Header";
 import DevItem from "../../components/DevList/DevItem";
+import { Link } from "react-router-dom";
 
 class Perfil extends React.Component {
   render() {
@@ -8,9 +9,14 @@ class Perfil extends React.Component {
       <>
         {/*Header*/}
         <Header title="Super Dev">
-          <button onClick={this.props.onChangePage}>Início</button>
+          <Link to="/register">
+            <button>Criar</button>
+          </Link>
+          <Link to="/">
+            <button>Início</button>
+          </Link>
         </Header>
-        <DevItem {...this.props.dev} />
+        <DevItem {...this.props.location.state.dev} />
       </>
     );
   }
