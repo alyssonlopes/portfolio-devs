@@ -2,26 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./index.css";
 
-class DevItem extends React.Component {
-  render() {
-    return (
-      <li className="devitem-container" onClick={this.props.onSelect}>
-        {this.props.photo && (
-          <img
-            className="devitem-photo"
-            src={this.props.photo}
-            alt={this.props.name}
-          />
-        )}
+const DevItem = ({ onSelect, photo, name, expertise }) => {
+  return (
+    <li className="devitem-container" onClick={onSelect}>
+      {photo && <img className="devitem-photo" src={photo} alt={name} />}
 
-        <div>
-          <p className="devitem-name">{this.props.name}</p>
-          <p className="devitem-expertise">{this.props.expertise}</p>
-        </div>
-      </li>
-    );
-  }
-}
+      <div>
+        <p className="devitem-name">{name}</p>
+        <p className="devitem-expertise">{expertise}</p>
+      </div>
+    </li>
+  );
+};
 
 DevItem.propTypes = {
   photo: PropTypes.string,
