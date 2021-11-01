@@ -1,7 +1,7 @@
 import React from "react";
 
-const DevList = () => {
-  return <ul>{this.props.children}</ul>;
+const DevList = ({ children }) => {
+  return <ul>{children}</ul>;
 };
 
 export default DevList;
