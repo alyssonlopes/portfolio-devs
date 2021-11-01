@@ -27,7 +27,7 @@ class Home extends React.Component {
     console.log(text);
 
     const resultFilter = this.listData.filter((dev) => {
-      return dev.name.includes(text);
+      return dev.name.toLowerCase().includes(text.toLowerCase());
     });
 
     this.setState({ devsList: resultFilter });
